@@ -1,0 +1,35 @@
+﻿@model Football.Models.Player
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Добавление нового игрока</h2>
+
+@using (Html.BeginForm())
+{
+
+    <h4>Футболист</h4>
+    @Html.HiddenFor(p=>p.Id)
+    <p>
+        Имя игрока <br />
+        @Html.EditorFor(p => p.Name)
+    </p>
+    <p>
+        Возраст игрока<br />
+        @Html.EditorFor(p => p.Age)
+    </p>
+    <p>
+        Позиция на поле<br />
+        @Html.EditorFor(p => p.Position)
+    </p>
+    <p>
+        Команда <br />
+        @Html.DropDownListFor(p => p.TeamId, ViewBag.Teams as SelectList)
+    </p>
+    <p><input type="submit" value="Изменить игрока" /></p>
+
+}
+<div>
+    @Html.ActionLink("К списку игроков", "Index")
+</div>
